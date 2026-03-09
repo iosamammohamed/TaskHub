@@ -1,0 +1,66 @@
+/* Details Page Styles */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.details-card {
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    align-items: center;
+}
+
+h1 {
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.description {
+    white-space: pre-wrap;
+    font-size: 1.125rem;
+}
+
+.meta {
+    margin-top: 2rem;
+}
+
+.label {
+    margin-bottom: 0.25rem;
+}
+
+.value {
+    color: #1e293b;
+    font-size: 1rem;
+}
+
+/* Priority Styles matches the list for consistency */
+.prio-low {
+    color: #22c55e;
+    background: #f0fdf4;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+}
+
+.prio-medium {
+    color: #f59e0b;
+    background: #fffbeb;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+}
+
+.prio-high {
+    color: #ef4444;
+    background: #fef2f2;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+}
+
+.empty-state {
+    border: 2px dashed #e2e8f0;
+}

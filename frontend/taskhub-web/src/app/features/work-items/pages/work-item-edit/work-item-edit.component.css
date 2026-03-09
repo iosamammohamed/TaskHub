@@ -1,0 +1,44 @@
+/* Edit/Form Page Styles */
+
+.container {
+    max-width: 900px;
+}
+
+.form-card {
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 25px -4px rgba(0, 0, 0, 0.08);
+}
+
+.form-group label {
+    font-size: 0.9375rem;
+    color: #475569;
+}
+
+/* Customizing PrimeNG Input borders for Aura look */
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-textarea,
+:host ::ng-deep .p-select,
+:host ::ng-deep .p-datepicker {
+    border-radius: 8px;
+}
+
+:host ::ng-deep .p-select {
+    display: flex;
+    align-items: center;
+}
+
+.error-feedback small {
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.form-actions {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        gap: 1.5rem;
+    }
+}

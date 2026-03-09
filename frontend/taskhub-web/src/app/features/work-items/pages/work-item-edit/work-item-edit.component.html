@@ -1,0 +1,70 @@
+<div class="container mx-auto p-6 max-w-4xl">
+    <header class="header flex justify-between items-center mb-8 border-b pb-4">
+        <p-button [routerLink]="isEdit ? ['/work-items', itemId] : ['/work-items']" icon="pi pi-arrow-left" label="Back"
+            [text]="true"></p-button>
+        <h1 class="text-3xl font-bold text-gray-800">{{ isEdit ? 'Edit' : 'Create' }} Task</h1>
+        <div style="width: 100px"></div> <!-- Spacer for centering -->
+    </header>
+
+    <div class="form-card p-8 shadow-lg border rounded-xl bg-white">
+        <form [formGroup]="form" (ngSubmit)="save()" class="flex flex-col gap-6">
+            <div class="form-group flex flex-col gap-2">
+                <label for="title" class="font-semibold text-gray-700">Title</label>
+                <input type="text" id="title" pInputText formControlName="title" placeholder="What needs to be done?"
+                    [ngClass]="{'ng-invalid ng-dirty': f['title'].touched && f['title'].invalid}" class="w-full" />
+
+                @if (f['title'].touched && f['title'].invalid) {
+                <div class="error-feedback text-red-500 text-sm mt-1">
+                    @if (f['title'].errors?.['required']) { <small class="block italic leading-tight">Title is
+                        required.</small> }
+                    @if (f['title'].errors?.['minlength']) { <small class="block italic leading-tight">Title must be at
+                        least 3 characters.</small> }
+                </div>
+                }
+            </div>
+
+            <div class="form-group flex flex-col gap-2">
+                <label for="description" class="font-semibold text-gray-700">Description (Optional)</label>
+                <textarea id="description" pTextarea formControlName="description" rows="4"
+                    placeholder="Details about the task..." class="w-full"></textarea>
+                @if (f['description'].errors?.['maxlength']) {
+                <small class="text-red-500 mt-1 italic leading-tight">Description cannot exceed 500 characters.</small>
+                }
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="form-group flex flex-col gap-2">
+                    <label for="priority" class="font-semibold text-gray-700">Priority</label>
+                    <p-select id="priority" formControlName="priority" [options]="priorityOptions" optionLabel="label"
+                        optionValue="value" placeholder="Select Priority" class="w-full"></p-select>
+                </div>
+
+                <div class="form-group flex flex-col gap-2">
+                    <label for="dueDate" class="font-semibold text-gray-700">Due Date</label>
+                    <p-datepicker id="dueDate" formControlName="dueDate" [showIcon]="true" dateFormat="yy-mm-dd"
+                        class="w-full"
+                        [ngClass]="{'ng-invalid ng-dirty': f['dueDate'].touched && f['dueDate'].invalid}"></p-datepicker>
+                    @if (f['dueDate'].touched && f['dueDate'].invalid) {
+                    <small class="text-red-500 mt-1 italic leading-tight">Please select a due date.</small>
+                    }
+                </div>
+
+                @if (isEdit) {
+                <div class="form-group flex flex-col gap-2">
+                    <label for="status" class="font-semibold text-gray-700">Status</label>
+                    <p-select id="status" formControlName="status" [options]="statusOptions" optionLabel="label"
+                        optionValue="value" placeholder="Select Status" class="w-full"></p-select>
+                </div>
+                }
+            </div>
+
+            <div class="form-actions flex justify-end gap-3 mt-4 pt-6 border-t">
+                <p-button type="button" label="Cancel" severity="secondary" [disabled]="isSubmitting"
+                    [routerLink]="isEdit ? ['/work-items', itemId] : ['/work-items']"></p-button>
+                <p-button type="submit" [label]="isSubmitting ? 'Saving...' : (isEdit ? 'Save Changes' : 'Create Task')"
+                    [icon]="isSubmitting ? 'pi pi-spin pi-spinner' : 'pi pi-check'"
+                    [disabled]="isSubmitting"></p-button>
+            </div>
+        </form>
+    </div>
+</div>

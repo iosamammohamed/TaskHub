@@ -1,0 +1,11 @@
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\bin\Debug\net8.0\TaskHub.Domain.deps.json
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\bin\Debug\net8.0\TaskHub.Domain.dll
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\bin\Debug\net8.0\TaskHub.Domain.pdb
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\obj\Debug\net8.0\TaskHub.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\obj\Debug\net8.0\TaskHub.Domain.AssemblyInfoInputs.cache
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\obj\Debug\net8.0\TaskHub.Domain.AssemblyInfo.cs
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\obj\Debug\net8.0\TaskHub.Domain.csproj.CoreCompileInputs.cache
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\obj\Debug\net8.0\TaskHub.Domain.dll
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\obj\Debug\net8.0\refint\TaskHub.Domain.dll
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\obj\Debug\net8.0\TaskHub.Domain.pdb
+D:\Work\Task\TaskHub\backend\src\TaskHub.Domain\obj\Debug\net8.0\ref\TaskHub.Domain.dll

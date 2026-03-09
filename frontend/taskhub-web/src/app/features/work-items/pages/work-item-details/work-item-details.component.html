@@ -1,0 +1,50 @@
+@if (item) {
+<div class="container">
+    <header class="header flex justify-between items-center mb-6">
+        <p-button [routerLink]="['/work-items']" icon="pi pi-arrow-left" label="Back to List" [text]="true"></p-button>
+        <div class="actions flex gap-2">
+            <p-button [routerLink]="['/work-items', item.id, 'edit']" icon="pi pi-pencil" label="Edit Task"
+                severity="secondary"></p-button>
+            @if (item.status !== WorkItemStatus.Done) {
+            <p-button (onClick)="markAsDone()" icon="pi pi-check" label="Mark as Done" severity="success"></p-button>
+            }
+        </div>
+    </header>
+
+    <main class="details-card p-6 shadow-md border rounded-lg bg-white">
+        <div class="card-header flex gap-2 mb-4">
+            <p-tag [value]="getStatusName(item.status)" [severity]="getPrimeSeverity(item.status)"></p-tag>
+            <span class="font-semibold" [ngClass]="getPriorityClass(item.priority)">
+                {{ getPriorityName(item.priority) }} Priority
+            </span>
+        </div>
+
+        <h1 class="text-3xl font-bold mb-6">{{ item.title }}</h1>
+
+        @if (item.description) {
+        <p class="description text-gray-700 leading-relaxed mb-8">
+            {{ item.description }}
+        </p>
+        } @else {
+        <div class="empty-state bg-gray-50 p-4 rounded text-center mb-8">
+            <p class="no-description text-gray-500 italic">No description provided for this task.</p>
+        </div>
+        }
+
+        <footer class="meta grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t font-medium">
+            <div class="meta-item">
+                <span class="label text-gray-500 block text-sm uppercase">Due Date</span>
+                <span class="value">{{ item.dueDate ? (item.dueDate | date:'longDate') : 'Not set' }}</span>
+            </div>
+            <div class="meta-item">
+                <span class="label text-gray-500 block text-sm uppercase">Created At</span>
+                <span class="value">{{ item.createdAt | date:'medium' }}</span>
+            </div>
+        </footer>
+    </main>
+</div>
+} @else {
+<div class="flex justify-center p-12">
+    <i class="pi pi-spin pi-spinner text-4xl text-gray-400"></i>
+</div>
+}
